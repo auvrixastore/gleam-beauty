@@ -1,8 +1,8 @@
 backend:
   name: github
-  repo: auvrixastore/Brillo-belleza
-  branch: Principal
-  auth_type: implicit
+  repo: auvrixastore/gleam-beauty
+  branch: main
+  base_url: https://auth.decapcms.org
 
 media_folder: "img/productos"
 public_folder: "/img/productos"
@@ -15,7 +15,7 @@ collections:
     slug: "{{slug}}"
     fields:
       - { label: "Nombre del Producto", name: "title", widget: "string" }
-      - { label: "Precio", name: "precio", widget: "number" }
-      - { label: "Stock", name: "stock", widget: "number" }
-      - { label: "Imagen", name: "imagen", widget: "image" }
+      - { label: "Precio ($)", name: "precio", widget: "number" }
+      - { label: "Stock disponible", name: "stock", widget: "number" }
+      - { label: "Foto del producto", name: "imagen", widget: "image" }
       - { label: "Descripción", name: "body", widget: "markdown" }
