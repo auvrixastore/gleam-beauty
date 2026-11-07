@@ -1,5 +1,6 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: auvrixastore/gleam-beauty
   branch: main
 
 media_folder: "img/productos"
