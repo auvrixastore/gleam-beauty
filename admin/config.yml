@@ -1,5 +1,11 @@
+
 backend:
   name: github
   repo: auvrixastore/Brillo-belleza
   branch: Principal
-  base_url: https://auth.decapcms.org
+  commit_messages:
+    create: "Crear {{slug}}"
+    update: "Actualizar {{slug}}"
+    delete: "Borrar {{slug}}"
+    upload_media: "Subir {{filename}}"
+    open_authoring: "Editar desde el panel"
