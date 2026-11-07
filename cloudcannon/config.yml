@@ -7,7 +7,7 @@ collections_config:
     _inputs:
       imagen:
         type: image
-      precio:
+      precio:280.000 gs
         type: number
       stock:
         type: number
