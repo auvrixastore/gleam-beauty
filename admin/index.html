@@ -6,7 +6,11 @@
     <title>Panel de Administración</title>
   </head>
   <body>
-    <!-- Script oficial de Decap CMS -->
+    <!-- Script de Decap CMS con soporte de token manual -->
     <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+    <script>
+      // Desactiva la redirección automática a Netlify Identity
+      window.NETLIFY_IDENTITY_WIDGET_DISABLED = true;
+    </script>
   </body>
 </html>
