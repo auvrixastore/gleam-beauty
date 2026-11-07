@@ -1,20 +1,5 @@
 backend:
   name: github
-  repo: auvrixastore/nombre-de-tu-repositorio
-  branch: main
-
-media_folder: "img/productos"
-public_folder: "/img/productos"
-
-collections:
-  - name: "productos"
-    label: "Productos"
-    folder: "content/productos"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - { label: "Nombre del Producto", name: "title", widget: "string" }
-      - { label: "Precio", name: "precio", widget: "number" }
-      - { label: "Stock", name: "stock", widget: "number" }
-      - { label: "Imagen", name: "imagen", widget: "image" }
-      - { label: "Descripción", name: "body", widget: "markdown" }
+  repo: auvrixastore/Brillo-belleza
+  branch: Principal
+  base_url: https://auth.decapcms.org
