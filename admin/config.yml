@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: auvrixastore/nombre-de-tu-repositorio # Reemplaza con el nombre exacto de tu repo
+  repo: auvrixastore/nombre-de-tu-repositorio
   branch: main
 
 media_folder: "img/productos"
