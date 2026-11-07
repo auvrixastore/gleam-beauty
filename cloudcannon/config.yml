@@ -1,1 +1,13 @@
-
+collections_config:
+  productos:
+    path: content/productos
+    output: true
+    name: Productos
+    icon: shopping_cart
+    _inputs:
+      imagen:
+        type: image
+      precio:
+        type: number
+      stock:
+        type: number
