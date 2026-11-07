@@ -2,7 +2,6 @@ backend:
   name: github
   repo: auvrixastore/gleam-beauty
   branch: main
-  base_url: https://auth.decapcms.org
 
 media_folder: "img/productos"
 public_folder: "/img/productos"
