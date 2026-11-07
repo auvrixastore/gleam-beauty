@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Glam Beauty · Cosméticos y esmaltes de marca</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fff7f8;--ink:#2b1220;--muted:#7a6470;--rose:#d94f7a;--rose2:color-mix(in srgb,var(--rose) 40%,white);--gold:#c9a35b;--wa:#25d366}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--ink);overflow-x:hidden}
+h1,h2,h3{font-family:'Playfair Display',serif}
+header{display:flex;justify-content:space-between;align-items:center;padding:14px 6vw;position:sticky;top:0;background:rgba(255,247,248,.93);backdrop-filter:blur(8px);z-index:5;border-bottom:1px solid #f3dde3}
+.logo{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700}
+.logo span{color:var(--rose);transition:color .5s}
+.btn{display:inline-block;border:0;cursor:pointer;padding:12px 24px;border-radius:50px;font-weight:600;font-size:.92rem;text-decoration:none;background:var(--ink);color:#fff;transition:.25s}
+.btn:hover{transform:translateY(-2px) scale(1.03);background:var(--rose)}
+.wa{background:var(--wa);width:100%;text-align:center;padding:11px}
+.wa:hover{background:#1ebe5a}
+
+/* fondo flotante */
+#float{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:0}
+#float span{position:absolute;bottom:-40px;opacity:0;animation:rise linear forwards}
+@keyframes rise{0%{transform:translateY(0) translateX(0) rotate(0);opacity:0}10%{opacity:.7}50%{transform:translateY(-55vh) translateX(25px) rotate(120deg)}100%{transform:translateY(-115vh) translateX(-20px) rotate(260deg);opacity:0}}
+header,.hero,.tiles,main,footer{position:relative;z-index:1}
+
+/* hero */
+.hero{text-align:center;padding:60px 6vw 30px;background:radial-gradient(circle at 15% 20%,#ffd9e5 0,transparent 45%),radial-gradient(circle at 88% 75%,#f6e6c4 0,transparent 40%)}
+.hero small{letter-spacing:.3em;text-transform:uppercase;color:var(--gold);font-weight:600}
+.hero h1{font-size:clamp(2.2rem,6vw,4.2rem);margin:14px 0;line-height:1.1}
+.hero h1 em{font-style:italic;background:linear-gradient(90deg,var(--rose),var(--gold),var(--rose));background-size:200%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shimmer 4s linear infinite}
+@keyframes shimmer{to{background-position:200% 0}}
+.hero p{color:var(--muted);max-width:540px;margin:0 auto}
+.hint{margin-top:26px;font-size:.85rem;color:var(--muted)}
+.stage{display:flex;justify-content:center;margin-top:20px}
+.bottle{position:relative;width:110px;cursor:pointer;animation:float 3.5s ease-in-out infinite;-webkit-tap-highlight-color:transparent;filter:drop-shadow(0 18px 18px rgba(0,0,0,.15))}
+@keyframes float{50%{transform:translateY(-14px) rotate(-3deg)}}
+.bottle.pop{animation:wob .7s}
+@keyframes wob{20%{transform:rotate(-14deg) scale(1.1)}45%{transform:rotate(12deg) scale(1.1)}70%{transform:rotate(-6deg)}100%{transform:rotate(0)}}
+.cap{width:42px;height:64px;margin:0 auto;border-radius:10px 10px 6px 6px;background:linear-gradient(90deg,#1e1e1e,#4a4a4a 40%,#111)}
+.neck{width:30px;height:12px;margin:0 auto;background:#e8d9b8}
+.body{position:relative;height:118px;border-radius:26px;background:linear-gradient(135deg,color-mix(in srgb,var(--rose) 70%,white),var(--rose) 60%,color-mix(in srgb,var(--rose) 70%,black));overflow:hidden;transition:background .6s;display:grid;place-items:center;color:rgba(255,255,255,.85);font-family:'Playfair Display',serif;letter-spacing:.2em;font-size:.8rem}
+.body::before{content:"";position:absolute;top:8px;left:14px;width:14px;height:84px;border-radius:10px;background:rgba(255,255,255,.55)}
+.body::after{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.55),transparent);animation:sweep 3.5s infinite}
+@keyframes sweep{to{left:130%}}
+.drop{position:absolute;left:50%;bottom:-4px;width:12px;height:16px;margin-left:-6px;border-radius:50% 50% 55% 55%;background:var(--rose);opacity:0;animation:drip 3.5s infinite;transition:background .6s}
+@keyframes drip{0%,55%{opacity:0;transform:translateY(0)}65%{opacity:1}100%{opacity:0;transform:translateY(60px)}}
+.dots{display:flex;gap:12px;justify-content:center;margin-top:18px}
+.dots i{width:30px;height:30px;border-radius:50%;cursor:pointer;border:3px solid #fff;box-shadow:0 3px 10px rgba(0,0,0,.2);transition:.25s}
+.dots i:hover{transform:scale(1.25)}
+.dots i.on{transform:scale(1.2);outline:2px solid var(--ink)}
+
+/* sectores */
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;padding:30px 6vw 10px;max-width:1100px;margin:0 auto}
+.tile{background:#fff;border-radius:18px;padding:20px 10px;text-align:center;text-decoration:none;color:var(--ink);box-shadow:0 6px 20px rgba(0,0,0,.06);transition:.3s}
+.tile b{display:block;font-size:2rem;margin-bottom:6px;transition:.3s}
+.tile:hover{transform:translateY(-6px);background:var(--rose);color:#fff}
+.tile:hover b{animation:wiggle .6s}
+@keyframes wiggle{25%{transform:rotate(-18deg) scale(1.3)}60%{transform:rotate(15deg) scale(1.3)}100%{transform:rotate(0) scale(1.15)}}
+.tile span{font-weight:600;font-size:.9rem}
+section.cat{padding:46px 6vw 20px}
+section.cat:nth-of-type(even){background:rgba(255,235,242,.6)}
+.sh{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:22px}
+.sh h2{font-size:1.9rem}
+.sh p{color:var(--muted);font-size:.92rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:22px}
+.card{position:relative;background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 8px 26px rgba(0,0,0,.07);display:flex;flex-direction:column;transition:transform .35s,box-shadow .35s}
+.card:hover{transform:translateY(-8px) rotate(-.6deg);box-shadow:0 16px 36px color-mix(in srgb,var(--rose) 30%,transparent)}
+.ph{position:relative;aspect-ratio:1;background:linear-gradient(135deg,#ffd9e5,#f6e6c4);display:grid;place-items:center;font-size:4rem;overflow:hidden}
+.ph img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.card:hover .ph img,.card:hover .ph .em{transform:scale(1.12) rotate(4deg)}
+.em{transition:transform .5s}
+.ph::after{content:"";position:absolute;top:0;left:-80%;width:50%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.6),transparent);transform:skewX(-15deg)}
+.card:hover .ph::after{left:140%;transition:left .8s}
+.like{position:absolute;top:10px;right:10px;z-index:2;width:38px;height:38px;border-radius:50%;border:0;background:rgba(255,255,255,.9);font-size:1.2rem;cursor:pointer;color:#bbb;transition:.2s}
+.like.on{color:#e0245e;animation:heart .5s}
+@keyframes heart{30%{transform:scale(1.6)}60%{transform:scale(.9)}}
+.info{padding:15px;display:flex;flex-direction:column;gap:5px;flex:1}
+.brand{font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:600}
+.info h3{font-size:1.08rem}
+.info p{color:var(--muted);font-size:.85rem;line-height:1.45;flex:1}
+.price{font-weight:600;color:var(--rose);font-size:1.05rem;margin:4px 0 8px}
+
+/* aparecer al hacer scroll */
+.rv{opacity:0;transform:translateY(34px) scale(.96);transition:opacity .7s,transform .7s}
+.rv.in{opacity:1;transform:none}
+
+/* destellos al tocar */
+.sp{position:fixed;pointer-events:none;z-index:99;font-size:18px;animation:burst .9s ease-out forwards}
+@keyframes burst{to{transform:translate(var(--dx),var(--dy)) scale(.3) rotate(200deg);opacity:0}}
+
+footer{text-align:center;padding:40px 6vw;color:var(--muted);font-size:.85rem}
+.fab{position:fixed;right:18px;bottom:18px;z-index:9;background:var(--wa);color:#fff;width:58px;height:58px;border-radius:50%;display:grid;place-items:center;font-size:1.6rem;text-decoration:none;box-shadow:0 6px 18px rgba(0,0,0,.25)}
+.fab::before{content:"";position:absolute;inset:0;border-radius:50%;background:var(--wa);animation:ring 2s infinite;z-index:-1}
+@keyframes ring{to{transform:scale(1.9);opacity:0}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+
+/* admin */
+#admin{display:none;position:relative;z-index:1;background:#fff;border:2px dashed var(--rose2);border-radius:20px;margin:24px 6vw;padding:24px}
+#admin h2{margin-bottom:14px}
+#admin form{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+#admin input,#admin select,#admin textarea{padding:11px;border:1px solid #ecd3db;border-radius:10px;font:inherit;width:100%;background:#fff}
+#admin textarea{grid-column:1/-1}
+.row{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.mini{display:flex;gap:8px;align-items:center;padding:8px 0;border-bottom:1px solid #f3dde3;font-size:.9rem}
+.mini button{margin-left:auto;background:none;border:0;color:#c0392b;cursor:pointer}
+</style>
+</head>
+<body>
+<div id="float"></div>
+
+<header>
+  <div class="logo">Glam<span>Beauty</span></div>
+  <a class="btn" id="hdrWa" href="#" target="_blank" rel="noopener">Escribinos</a>
+</header>
+
+<!-- PANEL ADMIN: entrá con  tusitio.com/#admin -->
+<div id="admin">
+  <h2>Panel de productos</h2>
+  <div id="login">
+    <form id="lf">
+      <input id="em" type="email" placeholder="Tu correo" required>
+      <input id="pw" type="password" placeholder="Tu contraseña" required>
+      <button class="btn" type="submit">Entrar</button>
+    </form>
+  </div>
+  <div id="panel" style="display:none">
+    <form id="f">
+      <input id="n" placeholder="Nombre (ej: Rojo Pasión)" required>
+      <input id="b" placeholder="Marca (ej: OPI)" required>
+      <select id="c"></select>
+      <input id="p" placeholder="Precio (ej: 45.000 Gs)">
+      <input id="img" type="file" accept="image/*">
+      <textarea id="d" rows="2" placeholder="Descripción"></textarea>
+      <button class="btn" id="add" type="submit">+ Agregar producto</button>
+    </form>
+    <div class="row"><button class="btn" id="out" type="button">Cerrar sesión</button></div>
+    <div id="list" style="margin-top:14px"></div>
+  </div>
+</div>
+
+<div class="hero">
+  <small>Cosméticos de marca</small>
+  <h1>Realzá tu <em>belleza</em></h1>
+  <p>Esmaltes, maquillaje, cuidado de la piel y más. Elegí tu sector y consultá por WhatsApp.</p>
+  <div class="stage">
+    <div class="bottle" id="bottle"><div class="cap"></div><div class="neck"></div><div class="body">GLAM</div><i class="drop"></i></div>
+  </div>
+  <div class="dots" id="dots"></div>
+  <div class="hint">👆 Tocá el frasco o elegí un color</div>
+</div>
+
+<nav class="tiles" id="tiles"></nav>
+<main id="main"></main>
+
+<footer>© <span id="yr"></span> Glam Beauty · Hecho con 💖</footer>
+<a class="fab" id="fab" href="#" target="_blank" rel="noopener" aria-label="WhatsApp">💬</a>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+<script>
+/* ====== CONFIGURACIÓN ====== */
+const WHATSAPP = "595975410239";
+const SUPABASE_URL = "https://TU-PROYECTO.supabase.co"; // pegá tu Project URL
+const SUPABASE_KEY = "TU-CLAVE-PUBLICA";               // pegá tu anon / publishable key
+const CATS = [
+ {id:"esmaltes",  name:"Esmaltes",           emoji:"💅", desc:"Colores de las mejores marcas"},
+ {id:"gel",       name:"Gel y semipermanente",emoji:"✨", desc:"Brillo y duración por semanas"},
+ {id:"cuidado-un",name:"Cuidado de uñas",    emoji:"🌸", desc:"Cutículas, tratamientos y fortalecedores"},
+ {id:"maquillaje",name:"Maquillaje",         emoji:"💄", desc:"Labiales, bases, sombras y más"},
+ {id:"piel",      name:"Cuidado de la piel", emoji:"🧴", desc:"Cremas, limpiadores y sérums"},
+ {id:"accesorios",name:"Accesorios",         emoji:"🪞", desc:"Limas, pinceles y herramientas"}
+];
+const COLORS = ["#d94f7a","#e03131","#9c5bd6","#e8a33d","#2bb5a0","#2b2b3a"]; // colores del frasco
+const SAMPLES = [
+ {cat:"esmaltes",name:"Rojo Pasión",brand:"OPI",price:"45.000 Gs",desc:"Rojo intenso con acabado cremoso y larga duración."},
+ {cat:"esmaltes",name:"Nude Satén",brand:"Essie",price:"38.000 Gs",desc:"Nude elegante, ideal para uso diario."},
+ {cat:"esmaltes",name:"Rosa Chicle",brand:"Masglo",price:"22.000 Gs",desc:"Rosa vibrante de secado rápido."},
+ {cat:"gel",name:"Gel Efecto Espejo",brand:"Kiss",price:"55.000 Gs",desc:"Brillo tipo gel, sin necesidad de lámpara."},
+ {cat:"gel",name:"Kit Semipermanente",brand:"Mia Secret",price:"180.000 Gs",desc:"Incluye base, color y top coat."},
+ {cat:"cuidado-un",name:"Aceite de Cutículas",brand:"CND",price:"48.000 Gs",desc:"Hidrata y repara cutículas resecas."},
+ {cat:"cuidado-un",name:"Fortalecedor",brand:"Sally Hansen",price:"35.000 Gs",desc:"Uñas más fuertes y resistentes."},
+ {cat:"maquillaje",name:"Labial Mate Ruby",brand:"Maybelline",price:"60.000 Gs",desc:"Color intenso y mate de 16 horas."},
+ {cat:"maquillaje",name:"Paleta Sunset",brand:"Revlon",price:"95.000 Gs",desc:"12 sombras cálidas, pigmentadas."},
+ {cat:"piel",name:"Crema Hidratante",brand:"Nivea",price:"40.000 Gs",desc:"Hidratación profunda por 48 horas."},
+ {cat:"piel",name:"Sérum Vitamina C",brand:"L'Oréal",price:"110.000 Gs",desc:"Ilumina y unifica el tono."},
+ {cat:"accesorios",name:"Set de Limas",brand:"Glam",price:"20.000 Gs",desc:"5 limas profesionales para uñas."},
+ {cat:"accesorios",name:"Pinceles Nail Art",brand:"Glam",price:"30.000 Gs",desc:"Set de 5 pinceles para decorar."}
+];
+/* =========================== */
+
+const $ = id => document.getElementById(id);
+const esc = s => String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const isAdmin = location.hash === "#admin";
+const catOf = id => CATS.find(c=>c.id===id) || CATS[0];
+let products = [];
+const waLink = t => `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(t)}`;
+$("hdrWa").href = $("fab").href = waLink("¡Hola! Quisiera más información sobre sus productos 💖");
+$("yr").textContent = new Date().getFullYear();
+
+/* ---- animaciones ---- */
+function burst(x,y,list,n=12){
+  for(let i=0;i<n;i++){
+    const s=document.createElement("span");s.className="sp";
+    s.textContent=list[Math.random()*list.length|0];
+    const a=Math.random()*6.28,d=40+Math.random()*70;
+    s.style.cssText=`left:${x}px;top:${y}px;--dx:${Math.cos(a)*d}px;--dy:${Math.sin(a)*d}px;font-size:${12+Math.random()*14}px`;
+    document.body.appendChild(s);setTimeout(()=>s.remove(),900);
+  }
+}
+document.addEventListener("click",e=>{
+  const t=e.target;
+  if(t.closest(".wa")) burst(e.clientX,e.clientY,["💚","💬","✨"],14);
+  else if(t.closest(".like")) burst(e.clientX,e.clientY,["💖","💗","💕"],10);
+  else burst(e.clientX,e.clientY,["✨","💖","🌸","⭐","💅"],9);
+});
+// pétalos y corazones flotando de fondo
+const FL=["🌸","💖","✨","🤍","🌷","💅"];
+setInterval(()=>{
+  const f=$("float");if(f.children.length>14)return;
+  const s=document.createElement("span");
+  s.textContent=FL[Math.random()*FL.length|0];
+  s.style.cssText=`left:${Math.random()*100}%;font-size:${14+Math.random()*16}px;animation-duration:${9+Math.random()*7}s`;
+  f.appendChild(s);setTimeout(()=>s.remove(),16000);
+},900);
+// frasco y colores
+function setColor(c,i){
+  document.documentElement.style.setProperty("--rose",c);
+  [...$("dots").children].forEach((d,k)=>d.classList.toggle("on",k===i));
+}
+$("dots").innerHTML=COLORS.map(c=>`<i style="background:${c}"></i>`).join("");
+[...$("dots").children].forEach((d,i)=>d.onclick=e=>{e.stopPropagation();setColor(COLORS[i],i);burst(e.clientX,e.clientY,["✨","💅"],10)});
+let ci=0;setColor(COLORS[0],0);
+$("bottle").onclick=()=>{
+  const b=$("bottle");b.classList.remove("pop");void b.offsetWidth;b.classList.add("pop");
+  ci=(ci+1)%COLORS.length;setColor(COLORS[ci],ci);
+};
+// aparecer al hacer scroll
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{threshold:.12});
+function watch(){document.querySelectorAll(".rv:not(.in)").forEach((el,i)=>{el.style.transitionDelay=(i%5)*70+"ms";io.observe(el)})}
+
+/* ---- tienda (los productos viven en Supabase) ---- */
+const sb = SUPABASE_URL.includes("TU-PROYECTO") ? null : supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+async function load(){
+  if(!sb){ products = SAMPLES; return render(); }
+  const {data,error} = await sb.from("products").select("*").order("id",{ascending:false});
+  products = error ? SAMPLES : data.map(r=>({id:r.id,cat:r.cat,name:r.name,brand:r.brand,price:r.price,desc:r.descr,img:r.img}));
+  render();
+}
+function card(p){
+  const c = catOf(p.cat);
+  const msg = `¡Hola! Me interesa *${p.name}* de ${p.brand} (${c.name})${p.price?`, ${p.price}`:""}. ¿Está disponible? ¿Me podés dar más información?`;
+  return `<article class="card rv">
+    <div class="ph">${p.img?`<img src="${esc(p.img)}" alt="${esc(p.name)}" loading="lazy">`:`<span class="em">${c.emoji}</span>`}
+    <button class="like" aria-label="Me gusta" onclick="this.classList.toggle('on')">♥</button></div>
+    <div class="info"><span class="brand">${esc(p.brand)}</span><h3>${esc(p.name)}</h3>
+    <p>${esc(p.desc)}</p><div class="price">${esc(p.price)}</div>
+    <a class="btn wa" target="_blank" rel="noopener" href="${waLink(msg)}">Consultar por WhatsApp</a></div></article>`;
+}
+function render(){
+  $("tiles").innerHTML = CATS.map(c=>`<a class="tile rv" href="#${c.id}"><b>${c.emoji}</b><span>${esc(c.name)}</span></a>`).join("");
+  $("main").innerHTML = CATS.map(c=>{
+    const items = products.filter(p=>(p.cat||"esmaltes")===c.id);
+    if(!items.length) return "";
+    return `<section class="cat" id="${c.id}"><div class="sh rv"><h2>${c.emoji} ${esc(c.name)}</h2><p>${esc(c.desc)}</p></div>
+      <div class="grid">${items.map(card).join("")}</div></section>`;
+  }).join("") || "<p style='text-align:center;padding:40px;color:var(--muted)'>Pronto habrá productos ✨</p>";
+  watch();
+  if(isAdmin) renderList();
+}
+
+/* ---- Admin ---- */
+function renderList(){
+  $("list").innerHTML = products.filter(p=>p.id).map(p=>`<div class="mini"><span>${p.img?"🖼️":catOf(p.cat).emoji}</span><b>${esc(p.name)}</b> · ${esc(p.brand)} · ${esc(catOf(p.cat).name)}<button data-id="${p.id}">Eliminar</button></div>`).join("");
+  $("list").querySelectorAll("button").forEach(b=>b.onclick=async()=>{
+    if(!confirm("¿Eliminar este producto?")) return;
+    const {error}=await sb.from("products").delete().eq("id",b.dataset.id);
+    if(error) alert("No se pudo eliminar: "+error.message); else load();
+  });
+}
+function compress(file){ // achica la foto antes de subirla
+  return new Promise(res=>{
+    const r=new FileReader();
+    r.onload=()=>{const im=new Image();im.onload=()=>{
+      const s=Math.min(1,900/Math.max(im.width,im.height));
+      const c=document.createElement("canvas");c.width=im.width*s;c.height=im.height*s;
+      c.getContext("2d").drawImage(im,0,0,c.width,c.height);c.toBlob(res,"image/jpeg",.8);
+    };im.src=r.result};r.readAsDataURL(file);
+  });
+}
+function showPanel(on){ $("login").style.display=on?"none":"block"; $("panel").style.display=on?"block":"none"; if(on) renderList(); }
+async function initAdmin(){
+  $("admin").style.display="block";
+  if(!sb){ $("login").innerHTML="<p>Falta conectar Supabase: completá SUPABASE_URL y SUPABASE_KEY en el código.</p>"; return; }
+  $("c").innerHTML = CATS.map(c=>`<option value="${c.id}">${c.emoji} ${esc(c.name)}</option>`).join("");
+  const {data:{session}} = await sb.auth.getSession();
+  showPanel(!!session);
+  $("lf").onsubmit=async e=>{
+    e.preventDefault();
+    const {error}=await sb.auth.signInWithPassword({email:$("em").value.trim(),password:$("pw").value});
+    if(error) alert("Correo o contraseña incorrectos"); else showPanel(true);
+  };
+  $("out").onclick=async()=>{await sb.auth.signOut();showPanel(false)};
+  $("f").onsubmit=async e=>{
+    e.preventDefault();
+    const btn=$("add");btn.disabled=true;btn.textContent="Subiendo…";
+    try{
+      let url="";const f=$("img").files[0];
+      if(f){
+        const blob=await compress(f), path=Date.now()+"-"+Math.random().toString(36).slice(2,8)+".jpg";
+        const up=await sb.storage.from("fotos").upload(path,blob,{contentType:"image/jpeg"});
+        if(up.error) throw up.error;
+        url=sb.storage.from("fotos").getPublicUrl(path).data.publicUrl;
+      }
+      const {error}=await sb.from("products").insert({cat:$("c").value,name:$("n").value.trim(),brand:$("b").value.trim(),price:$("p").value.trim(),descr:$("d").value.trim(),img:url});
+      if(error) throw error;
+      $("f").reset();await load();
+    }catch(err){ alert("No se pudo guardar: "+err.message); }
+    btn.disabled=false;btn.textContent="+ Agregar producto";
+  };
+}
+if(isAdmin) initAdmin();
+load();
+</script>
+</body>
+</html>
