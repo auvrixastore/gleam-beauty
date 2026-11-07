@@ -1,11 +1,20 @@
-
 backend:
   name: github
   repo: auvrixastore/Brillo-belleza
   branch: Principal
-  commit_messages:
-    create: "Crear {{slug}}"
-    update: "Actualizar {{slug}}"
-    delete: "Borrar {{slug}}"
-    upload_media: "Subir {{filename}}"
-    open_authoring: "Editar desde el panel"
+
+media_folder: "img/productos"
+public_folder: "/img/productos"
+
+collections:
+  - name: "productos"
+    label: "Productos"
+    folder: "content/productos"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Nombre del Producto", name: "title", widget: "string" }
+      - { label: "Precio", name: "precio", widget: "number" }
+      - { label: "Stock", name: "stock", widget: "number" }
+      - { label: "Imagen", name: "imagen", widget: "image" }
+      - { label: "Descripción", name: "body", widget: "markdown" }
